@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "chainiter"
+version = "0.1.0"
+description = "Chainable lazy iterators"
+authors = ["Luka Peschke <mail@lukapeschke.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/lukapeschke/chainiter"
+classifiers = [
+    "Typing :: Typed",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Typing :: Typed"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.12b0"
+isort = "^5.10.1"
+pylint = "~2.12.2"
+mypy = ">=0.931, <0.940"
+
+[tool.mypy]
+strict = true
+pretty = true
+
+[tool.black]
+line-length = 100
+
+[tool.pylint.MASTER]
+ignore = "tests"
+jobs = 0
+
+[tool.pylint.BASIC]
+good-names = ["fn", "n", "O", "T", "U"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
