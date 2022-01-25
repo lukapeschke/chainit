@@ -1,0 +1,39 @@
+on:
+  push:
+    tags:
+      - "*"
+
+name: Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install dependencies
+      run: |
+        pip install -U pip
+        pip install poetry
+
+    - name: Build
+      run: poetry build
+
+    - name: Publish release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/*.whl, dist/*.tar.gz"
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish package to PyPI
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
