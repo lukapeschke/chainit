@@ -21,7 +21,7 @@
 
                     <h2>Contents</h2>
                     <ul>
-  <li><a href="#chainiter">chainiter</a>
+  <li><a href="#chainit">chainit</a>
   <ul>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#examples">Examples</a></li>
@@ -115,11 +115,11 @@
                     <h1 class="modulename">
 chainit    </h1>
 
-                        <div class="docstring"><h1 id="chainiter">chainiter</h1>
+                        <div class="docstring"><h1 id="chainit">chainit</h1>
 
-<p>Documentation available here: https://lukapeschke.github.io/chainiter/</p>
+<p>Documentation available here: https://lukapeschke.github.io/chainit/</p>
 
-<p>This library provides the <code>ChainIter</code> class, a wrapper around stdlib's
+<p>This library provides the <code><a href="#ChainIt">ChainIt</a></code> class, a wrapper around stdlib's
 <a href="https://docs.python.org/3/library/itertools.html">itertools</a> module, allowing to chain
 operations on iterables, resulting in easier-to-read code.</p>
 
@@ -135,7 +135,7 @@ operations on iterables, resulting in easier-to-read code.</p>
 
 <span class="c1"># Allows to write things like this...</span>
 <span class="p">(</span>
-    <span class="n">ChainIter</span><span class="p">(</span><span class="n">fib</span><span class="p">())</span>
+    <span class="n">ChainIt</span><span class="p">(</span><span class="n">fib</span><span class="p">())</span>
     <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
     <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
     <span class="o">.</span><span class="n">flat_map</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span>
@@ -158,17 +158,17 @@ operations on iterables, resulting in easier-to-read code.</p>
 
 <h2 id="installation">Installation</h2>
 
-<pre><code>pip install chainiter
+<pre><code>pip install chainit
 </code></pre>
 
 <h2 id="examples">Examples</h2>
 
 <h3 id="decorator">Decorator</h3>
 
-<p>In addition to <code>ChainIter</code>, the library provides a <code>chainiter</code> decorator. It makes a function returning
-an iterable return a <code>ChainIter</code> instead:</p>
+<p>In addition to <code><a href="#ChainIt">ChainIt</a></code>, the library provides a <code><a href="#chainit">chainit</a></code> decorator. It makes a function returning
+an iterable return a <code><a href="#ChainIt">ChainIt</a></code> instead:</p>
 
-<div class="codehilite"><pre><span></span><code><span class="nd">@chainiter</span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@chainit</span>
 <span class="k">def</span> <span class="nf">fac</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">fac</span> <span class="o">=</span> <span class="mi">1</span>
@@ -180,7 +180,7 @@ an iterable return a <code>ChainIter</code> instead:</p>
 <span class="k">assert</span> <span class="n">fac</span><span class="p">()</span><span class="o">.</span><span class="n">enumerate</span><span class="p">()</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="o">==</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 </code></pre></div>
 
-<h3 id="using-a-chainiter-instance-as-an-iterable">Using a <code>ChainIter</code> instance as an iterable</h3>
+<h3 id="using-a-chainit-instance-as-an-iterable">Using a <code><a href="#ChainIt">ChainIt</a></code> instance as an iterable</h3>
 
 <div class="codehilite"><pre><span></span><code><span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">fac</span><span class="p">()</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
