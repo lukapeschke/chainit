@@ -1,5 +1,7 @@
 # chainiter
 
+Documentation available here: https://lukapeschke.github.io/chainiter/
+
 This library provides the `ChainIter` class, a wrapper around stdlib's
 [itertools](https://docs.python.org/3/library/itertools.html) module, allowing to chain
 operations on iterables, resulting in easier-to-read code.
