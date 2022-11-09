@@ -29,7 +29,7 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
-black = "^21.12b0"
+black = "^22.10"
 isort = "^5.10.1"
 pylint = "~2.12.2"
 mypy = ">=0.931, <0.940"
