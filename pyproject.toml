@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chainit"
-version = "0.1.0"
+version = "0.1.2"
 description = "Chainable lazy iterators"
 authors = ["Luka Peschke <mail@lukapeschke.com>"]
 license = "MIT"
