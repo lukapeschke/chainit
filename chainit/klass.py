@@ -97,9 +97,7 @@ class ChainIt(t.Generic[T]):
         >>> ChainIt(range(5)).filter_map(lambda x: d.get(x)).collect()
         ('one', 'two', 'four')
         """
-        return ChainIt(
-            result for elem in self._iter if (result := fn(elem)) is not None
-        )
+        return ChainIt(result for elem in self._iter if (result := fn(elem)) is not None)
 
     def find(self, fn: t.Callable[[T], bool]) -> t.Optional[T]:
         """Returns the first elements for which ``fn`` returns true, or ``None`` otherwise.
@@ -193,7 +191,7 @@ class ChainIt(t.Generic[T]):
         >>> ChainIt(range(5)).zip(range(3, 0, -1)).collect()
         ((0, 3), (1, 2), (2, 1))
         """
-        return ChainIt(zip(self.__iter__(), other))
+        return ChainIt(zip(iter(self), other))
 
     def zip_longest(self, other: t.Iterable[U]) -> "ChainIt[t.Tuple[T, U]]":
         """Same as ``zip``, but stops when the longest of both iterables has been traversed.
@@ -201,4 +199,4 @@ class ChainIt(t.Generic[T]):
         >>> ChainIt(range(5)).zip_longest(range(3, 0, -1)).collect()
         ((0, 3), (1, 2), (2, 1), (3, None), (4, None))
         """
-        return ChainIt(itools.zip_longest(self.__iter__(), other))
+        return ChainIt(itools.zip_longest(iter(self), other))
