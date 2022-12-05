@@ -31,7 +31,7 @@ python = "^3.8"
 pytest = "^7.2.0"
 black = ">=22.10.0"
 isort = "^5.10.1"
-pylint = "^2.15.5"
+pylint = "^2.15.7"
 mypy = ">=0.982,<0.991"
 
 [tool.mypy]
