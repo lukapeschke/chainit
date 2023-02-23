@@ -122,7 +122,7 @@ class ChainIt(t.Generic[T]):
         return ChainIt(ichain.from_iterable(map(fn, self._iter)))
 
     def fold(self, fn: t.Callable[[O, T], O], initializer: O) -> O:
-        """Same as reduce, but passez an initialzing element
+        """Same as ``reduce``, but passed an initializing element
 
         >>> ChainIt(range(4)).fold(lambda x, y: x + y, 10)
         16
