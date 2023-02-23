@@ -13,9 +13,7 @@ def fib() -> t.Iterable[int]:
     a, b = 0, 1
     while True:
         yield a
-        next_ = a + b
-        a = b
-        b = next_
+        a, b = b, a + b
 
 # Allows to write things like this...
 (
