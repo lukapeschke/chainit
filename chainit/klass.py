@@ -8,7 +8,7 @@ from itertools import chain as ichain
 T = t.TypeVar("T")
 U = t.TypeVar("U")
 # Reserved for Output types
-O = t.TypeVar("O")
+O = t.TypeVar("O")  # noqa:E741 # ambiguous-variable-name
 
 
 class ChainIt(t.Generic[T]):

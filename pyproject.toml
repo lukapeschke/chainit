@@ -25,26 +25,17 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.5"
 pytest = "^7.4.3"
-black = ">=23.1.0"
-isort = "^5.12.0"
-pylint = "^2.17.5"
 mypy = "^1.7"
 
 [tool.mypy]
 strict = true
 pretty = true
 
-[tool.black]
+[tool.ruff]
 line-length = 100
-
-[tool.pylint.MASTER]
-ignore = "tests"
-jobs = 0
-
-[tool.pylint.BASIC]
-good-names = ["fn", "n", "O", "T", "U"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
