@@ -1,5 +1,6 @@
 """Module exporting the ``ChainIt`` class. This module should no be imported directly, use
 ``from chainter import ChainIt`` instead."""
+
 import functools as ftools
 import itertools as itools
 import typing as t
