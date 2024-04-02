@@ -1,6 +1,7 @@
 """
 Module exporting the ``chainit`` decorator. This module should no be imported
 directly, use ``from chainit import chainit`` instead."""
+
 import functools as ftools
 import typing as t
 
