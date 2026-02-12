@@ -18,12 +18,11 @@ jobs:
           - macos-latest
           - windows-latest
         python-version:
-          - '3.8'
-          - '3.9'
           - '3.10'
           - '3.11'
           - '3.12'
           - '3.13'
+          - '3.14'
 
     steps:
     - uses: actions/checkout@v6
@@ -33,10 +32,20 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        pip install -U pip
-        pip install tox tox-gh-actions
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
 
-    - name: Run tox
-      run: tox
+    - name: Install dependencies
+      run: uv sync --all-extras --dev
+
+    - name: Run tests
+      run: uv run pytest -vv --doctest-modules tests/ chainit/
+
+    - name: Run ruff check
+      run: uv run ruff check chainit/ tests/
+
+    - name: Run ruff format check
+      run: uv run ruff format --check chainit/ tests/
+
+    - name: Run mypy
+      run: uv run mypy chainit/
