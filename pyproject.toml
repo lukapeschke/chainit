@@ -1,6 +1,6 @@
 [project]
 name = "chainit"
-version = "0.4.0"
+version = "0.5.0"
 description = "Chainable lazy iterators"
 authors = [
     {name = "Luka Peschke", email = "mail@lukapeschke.com"}
